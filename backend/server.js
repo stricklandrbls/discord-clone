@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 // User defined imports
 const authRoutes = require("./routes/auth");
+const testRoutes = require("./routes/test");
 
 require("dotenv").config();
 
@@ -17,15 +18,18 @@ app.use(cors());
 
 // Register Defined Routes
 app.use("/api/auth", authRoutes);
-
+app.use("/test", testRoutes);
 const server = http.createServer(app);
 
-mongoose.connect(process.env.MONGO_URI)
-.then(()=>{
-    server.listen(PORT, () => {
-        console.log(`Server is listening on: ${PORT}`);
-    });
+server.listen(PORT, ()=>{
+    console.log(`Server running on port: ${PORT}`)
 })
-.catch((err) => {
-    console.log("Server not started: ", err);
-})
+// mongoose.connect(process.env.MONGO_URI)
+// .then(()=>{
+//     server.listen(PORT, () => {
+//         console.log(`Server is listening on: ${PORT}`);
+//     });
+// })
+// .catch((err) => {
+//     console.log("Server not started: ", err);
+// })
