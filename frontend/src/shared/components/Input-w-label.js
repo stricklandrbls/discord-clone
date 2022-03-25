@@ -37,7 +37,7 @@ const InputWithLabel = (props) =>{
     return (
         <Wrapper>
             <Label>{label}</Label>
-            <Input value={value} onChange={handleValueChange} type={type} placeholder={placeholder}></Input>
+            <Input value={value} onChange={handleValueChange} type={type} placeholder={placeholder} sx={{bgcolor: "#303030"}}></Input>
         </Wrapper>
     )
 }
